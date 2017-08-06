@@ -1,0 +1,33 @@
+<div class="container">
+  <header>
+    <h1 class="brand">Rotten Tomato</h1>
+  </header>
+  <section class="body">
+    <section class="input-wrapper">
+      <p>
+        <label for="name" class="txt-cut">片名：</label>
+        <input type="text" id="name" placeholder="战狼2"  [(ngModel)]="inputName">
+      </p>
+      <p>
+        <label for="img-url" class="txt-cut">海报链接：</label>
+        <input type="text" id="img-url" placeholder="img-url" [(ngModel)]="inputUrl">
+      </p>
+      <button class="btn btn-success" (click)="addNew()">添加新影片</button>
+    </section>
+    <section class="item-list">
+      <div class="item" *ngFor="let aFilm of films">
+        <a class="poster-wrapper" href="javascript:void(0)">
+          <img [src]="aFilm.posterUrl" alt="poster" class="poster-img">
+          <p class="poster-title txt-cut">{{aFilm.title}}</p>
+        </a>
+        <div class="right-panel">
+          <h3 class="fresh-rate txt-cut">{{aFilm.freshRate}}%</h3>
+          <div class="attitude-wrapper">
+            <button class="btn btn-fresh btn-attitude" (click)="freshFilm(aFilm)">Good</button>
+            <button class="btn btn-rotten btn-attitude" (click)="rottenFilm(aFilm)">Bad</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>
