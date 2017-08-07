@@ -6,7 +6,7 @@ export class FILMDATA {
   posterUrl: string;
   goodTime: number;
   badTime: number;
-  freshRate: number = 100;
+  freshRate = 100;
   // freshRate: number = parseFloat((this.goodTime/(this.goodTime+this.badTime)).toFixed(3));
 
   // constructor() {

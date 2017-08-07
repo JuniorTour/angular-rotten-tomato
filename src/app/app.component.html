@@ -6,13 +6,13 @@
     <section class="input-wrapper">
       <p>
         <label for="name" class="txt-cut">片名：</label>
-        <input type="text" id="name" placeholder="战狼2"  [(ngModel)]="inputName">
+        <input type="text" id="name" placeholder="影片名" [(ngModel)]="inputName">
       </p>
       <p>
         <label for="img-url" class="txt-cut">海报链接：</label>
-        <input type="text" id="img-url" placeholder="img-url" [(ngModel)]="inputUrl">
+        <input type="text" id="img-url" placeholder="海报链接" [(ngModel)]="inputUrl">
       </p>
-      <button class="btn btn-success" (click)="addNew()">添加新影片</button>
+      <button type="submit" class="btn btn-success" (click)="addNew()">添加新影片</button>
     </section>
     <section class="item-list">
       <div class="item" *ngFor="let aFilm of films">
@@ -21,7 +21,7 @@
           <p class="poster-title txt-cut">{{aFilm.title}}</p>
         </a>
         <div class="right-panel">
-          <h3 class="fresh-rate txt-cut">{{aFilm.freshRate}}%</h3>
+          <h3 class="fresh-rate txt-cut" [ngClass]="getRateClass(aFilm.freshRate)">{{aFilm.freshRate}}%</h3>
           <div class="attitude-wrapper">
             <button class="btn btn-fresh btn-attitude" (click)="freshFilm(aFilm)">Good</button>
             <button class="btn btn-rotten btn-attitude" (click)="rottenFilm(aFilm)">Bad</button>
